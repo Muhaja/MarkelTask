@@ -1,8 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<MarkelTaskContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("MarkelTaskDbContext")));
+builder.Services.AddDbContext<MarkelTaskContext>();
 builder.Services.AddScoped<IMarkelTaskRepository, MarkelTaskRepository>();
+builder.Services.AddScoped<IMarkelTaskApi, MarkelTaskApi>();
 
 var app = builder.Build();
 
